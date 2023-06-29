@@ -604,3 +604,116 @@
 // console.log(neo.first)
 // console.log(neo.last)
 // console.log(neo.age)
+
+
+// --------------------------------
+// 제네릭 (Generic)
+/// 함수
+
+interface Obj {
+    x: number
+}
+type Arr = [number, number];
+
+// 기존 오버로딩 방식
+// function toArray(a: string, b:string) : string[]
+// function toArray(a: number, b:number) : number[]
+// function toArray(a: boolean, b:boolean) : boolean[]
+// function toArray(a: Obj, b:Obj) : Obj[]
+// function toArray(a: Arr, b:Arr) : Arr[]
+// function toArray(a: any, b:any){
+//     return [a, b];
+// }
+
+//제네릭 방식
+// function toArray<T>(a: T, b:T){ // type혹은 T로 사용 (제네릭)
+//     return [a, b];
+// }
+
+// console.log(
+//     // toArray('Neo', 'Anderson'),
+//     // toArray(1, 2),
+//     // toArray(true, false),
+//     // toArray({x:1}, {x:2}),
+//     // toArray([1,2],[3,4]),
+
+//     toArray<string>('Neo', 'Anderson'), // <string>으로 표현 가능 (명시)
+//     toArray(1, 2),
+//     toArray(true, false),
+//     toArray({x:1}, {x:2}),
+//     toArray<Arr>([1,2],[3,4]), // number[]에서 <Arr>로 직접 지정해줌
+// );
+
+
+// // 제네릭
+// /// 클래스
+// class User<P>{
+//     // public payload: P
+//     // constructor(payload:P) {this.payload = payload}
+//     constructor(public payload: P) {}
+//     getPayload() {
+//         return this.payload
+//     } 
+// }
+
+// interface UserAType {
+//     name: string
+//     age : number
+//     isValid : boolean
+// }
+
+// interface UserBType {
+//     name: string
+//     age : number
+//     emails : string[]
+// }
+
+// const abc = new User <UserAType>({
+//     name: 'abc',
+//     age: 85,
+//     isValid : true,
+//     // emails : 'abc@gmail.com'
+// });
+
+// const neo = new User <UserBType>({
+//     name: 'neo',
+//     age: 102,
+//     // isValid : false,
+//     emails: ['neo@gmail.com'] // ?!
+// });
+
+
+// 제네릭
+/// 인터페이스, 제약 조건(Constraints)
+
+// interface MyData<T>{
+// // interface MyData<T extends string | number> {
+//     name: string
+//     value: T
+// }
+// const dataA: MyData<string> = {
+//     name: 'data A',
+//     value: 'Hello world'
+// }
+// const dataB: MyData<number> = {
+//     name: 'Data B',
+//     value: 1234
+// }
+// const dataC: MyData<boolean> = {
+//     name: 'Data C',
+//     value: true
+// }
+// const dataD: MyData<number[]> = {
+//     name: 'Data D',
+//     value: [1,2,3,4]
+// }
+
+
+// -----------------------------------
+// 패키지의 타입 선언
+import _ from 'lodash'
+
+const str = 'the brown fox jumps over the lazy dog.'
+
+console.log(_.camelCase(str))
+console.log(_.snakeCase(str))
