@@ -526,3 +526,81 @@
 // // cat 객체 데이터 기준에서 호출. this.는 cat에서 오는 것.
 
 
+
+// // -------
+// // 함수 - 오버로딩 (Overloading)
+
+// // 1)
+// function add1(a: string, b:string){
+//     return a + b;
+// }
+// function add2(a:number, b:number){
+//     return a + b;
+// }
+// add1('hello ', 'world~') // 'hello world~'
+// add2(1,2) // 3
+// add1('hello ', 2) // 타입이 안맞아서 에러남
+// add2('hello ', 2) // 타입이 안맞아서 에러남
+
+
+// // 2) 오버로딩
+// function add(a:string, b: string) : string // 1 타입 선언
+// function add(a:number, b: number) : number // 2 타입 선언
+// function add(a:any, b: any) { // 함수 구현 타입선언 1,2를 일치하게 할당되도록 함
+//     return a + b;
+// }
+// add('hello ', 'world~') // 'hello world~'
+// add(1, 2) // 3
+// add('hello ', 2) // 타입이 안맞아서 에러
+// add(1, 'world~') // 타입이 안맞아서 에러
+
+
+
+// -----------------------------
+// 클래스
+
+// 접근제어자 (Acess Modifiers)
+// public - 어디서나 자유롭게 접근 가능, 클래스 바디에서 생략 가능
+// protected - 나와 파생된 후손 클래스 내에서 접근 가능
+// private - 내 클래스에서만 접근 가능
+
+
+// class UserA {
+//     //타입스크립트는 먼저 속성을 적어주어야 에러가 뜨지 않음
+//     // public first: string = ''
+//     // public last: string = ''
+//     // public age: number = 0
+//     // constructor(first: string, last: string, age: number) {
+//     //     this.first = first
+//     //     this.last = last
+//     //     this.age = age
+//     // }
+//     // 위 방식 말고 다른 방식
+//     constructor(
+//         // public은 생략 불가
+//         public first: string = '', 
+//         public last: string = '', 
+//         public age: number = 0) {
+//             // ...
+//         }
+//     getAge() {
+//         return `${this.first} ${this.last} is ${this.age}`
+//     }
+// }
+
+// class UserB extends UserA {
+//     getAge() {
+//         return `${this.first} ${this.last} is ${this.age}`
+//     }
+// }
+
+// class UserC extends UserB {
+//     getAge() {
+//         return `${this.first} ${this.last} is ${this.age}`
+//     }
+// }
+
+// const neo = new UserA('Neo', 'Anderson', 102);
+// console.log(neo.first)
+// console.log(neo.last)
+// console.log(neo.age)
