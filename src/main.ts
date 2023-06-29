@@ -452,3 +452,77 @@
 // }
 
 
+// 타입 별칭(Alias)
+// 별칭을 만들때 앞에 type 을 사용
+
+// type TypeA = string // 원하는 이름으로 지정
+// type TypeB = string | number | boolean
+// type User = {
+//     name: string
+//     age: number
+//     isValid : boolean
+// } | [string, number, boolean]
+
+// const userA : User = {
+//     name: 'Neo',
+//     age: 85,
+//     isValid: true,
+// }
+// const userB : User = ['Evan', 36, false];
+
+// function someFunc(param: TypeB): TypeA {
+//     switch (typeof param){
+//         case 'string':
+//             return param.toUpperCase()
+//         case 'number':
+//             return param.toFixed(2)
+//         default :
+//             // return true
+//             return 'Boolean!'
+//     }
+// }
+
+
+// 인터페이스를 대신하여 type을 사용
+// type TypeUser = { // = 할당연산자가 type 별칭에는 꼭 필요
+//     name: string
+//     age: number
+//     isValid : boolean
+// }
+// interface InterfaceUser {
+//     name: string
+//     age: number
+//     isValid: boolean
+// }
+
+// const abc: TypeUser = {
+//     name: 'abc',
+//     age: 85,
+//     isValid: true
+// }
+// // 둘다 사용 가능한데 취향차이지만, 굳이 따지자면 Interface 방식을 추천. 별칭은 좀 더 사용범위가 넓어서 굳이 고르자면 인터페이스를 사용을 권장
+// const abc: InterfaceUser = {
+//     name: 'abc',
+//     age: 85,
+//     isValid: true
+// }
+
+
+// 함수 - 명시적 this
+
+// interface Cat {
+//     name: string
+//     age: number
+// }
+// const cat: Cat = {
+//     name : 'Lucy',
+//     age:3
+// }
+
+// function hello(this: Cat, message: string) { // this는 매개변수라기보다 위에서 정한 타입을 정하는 것이라고 생각하면 됨
+//     console.log(`Hello ${this.name}, ${message}`)
+// }
+// hello.call(cat, 'You are pretty awesome!'); // call메소드는 함수나 메소드 뒤에서 바로 사용 함수가 메소드가 어떤 대상에서 실행될 것인지 정하는 것 
+// // cat 객체 데이터 기준에서 호출. this.는 cat에서 오는 것.
+
+
