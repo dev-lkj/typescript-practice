@@ -1,0 +1,16 @@
+{
+    "compilerOptions" : {
+        "target": "ES2015",
+        "module" :"ESNext",
+        "moduleResolution": "Node",
+        "esModuleInterop": true, // ESM / commonJS 방식 둘다 사용하기
+        "lib" : ["ESNext","DOM"],
+        "strict": true
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
