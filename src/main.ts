@@ -711,9 +711,39 @@ type Arr = [number, number];
 
 // -----------------------------------
 // 패키지의 타입 선언
-import _ from 'lodash'
+ // /// <reference path="./lodash.d.ts" /> 
+// 삼중슬래시 지시자 / 참조태그 파일명을 lodash.d.ts 말고 다른거 할 때 이렇게 해서 잡아줌 슬래시 3번 필수
+// import _ from 'lodash'
 
-const str = 'the brown fox jumps over the lazy dog.'
+// const str = 'the brown fox jumps over the lazy dog.'
 
-console.log(_.camelCase(str))
-console.log(_.snakeCase(str))
+// console.log(_.camelCase(str))
+// console.log(_.snakeCase(str))
+// console.log(_.kebabCase(str))
+
+// 구글에 DefinitelyTyped
+// npm install @types/lodash -D
+// 필요한 거를 찾아서 사용
+
+
+// ----------------------------------------------
+// 타입 가져오기와 내보내기
+
+// import { getFullName, User } from './user';
+
+// const abc: User = {
+//     firstName : 'abc',
+//     lastName : 'Lee',
+//     age:85,
+//     isValid:true
+// }
+// const fullName = getFullName(abc)
+
+// console.log(fullName)
+// console.log(abc.isValid)
+
+
+
+// ----------------------- 
+// tsconfig.json 구성 옵션
+// README.md 파일에 작성
